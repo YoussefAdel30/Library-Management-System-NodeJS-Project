@@ -81,8 +81,10 @@ The system has a single user for authentication, which can access all endpoints 
 ### Try the APIs
 #### Using Postman Collection
 1️⃣ Import the collection and environments files which are present in the "postman" directory.
+<img width="1918" height="606" alt="image" src="https://github.com/user-attachments/assets/5498d6c0-1d37-4501-a869-f0714a90773a" />
 
 2️⃣ Click on the right icon of the enviroment .json to activate the enviroment variables.
+<img width="1918" height="661" alt="image" src="https://github.com/user-attachments/assets/976bfdf8-fb4e-4fdc-a5fa-6d91fd78a854" />
 
 3️⃣ After using the enviroment variable (user and pass), you can now hit any API smoothly.
 
@@ -90,6 +92,7 @@ The system has a single user for authentication, which can access all endpoints 
 
 #### Swagger to Directly Execute Requests
 1️⃣ Access Swagger at: http://localhost:5000/api-docs
+<img width="1897" height="752" alt="image" src="https://github.com/user-attachments/assets/360c807a-1815-407a-a894-434a7e28d935" />
 
 2️⃣ You can now use Swagger to execute requests directly. But, at your first request you will be asked to enter Credentials which is provided above.
 
