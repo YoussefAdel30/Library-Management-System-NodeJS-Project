@@ -79,6 +79,7 @@ but if you found problems like npm install command is cached go with the first o
 
 #### ⚠️ Note on Logs:
 When you run the application with docker compose up, logs from both the Node.js app and PostgreSQL database containers are streamed together in real time, interleaved by timestamp. Each log line is prefixed with the container name (e.g., app-1 or db-1) to help identify its source. Because of this, startup messages from the app might not appear at the very end of the log output, as shown in the example below.
+
 <img width="500" height="150" alt="image" src="https://github.com/user-attachments/assets/bd074b39-8a84-461d-8ae6-48ade19a14cc" />
 
 
