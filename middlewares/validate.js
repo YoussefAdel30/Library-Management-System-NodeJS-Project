@@ -1,4 +1,3 @@
-// middlewares/validate.js
 const { ZodError } = require('zod');
 
 function validate(schema) {
@@ -9,7 +8,6 @@ function validate(schema) {
         params: req.params,
         query: req.query,
       });
-      // you can attach validated to request if needed
       req.validated = validated;
       next();
     } catch (err) {

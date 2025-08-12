@@ -1,7 +1,7 @@
-// models/borrowerModel.js
 const db = require('../config/db');
 
 const Borrower = {
+  // ---------------- Used Methods for Borrowers - Used in Controller --------------
   async findAll() {
     const { rows } = await db.query('SELECT * FROM borrowers ORDER BY borrower_id ASC');
     return rows;

@@ -1,4 +1,3 @@
-// middlewares/basicAuth.js
 const basicAuth = (req, res, next) => {
   // Check if Authorization header is present
   const authHeader = req.headers.authorization;
@@ -12,9 +11,9 @@ const basicAuth = (req, res, next) => {
   const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
   const [username, password] = credentials.split(':');
 
-  // Validate username and password
-  const validUsername = process.env.API_USER || 'admin';  // example default
-  const validPassword = process.env.API_PASS || 'password';
+  // Validate username and password - They are Located in the .env file
+  const validUsername = process.env.API_USER; 
+  const validPassword = process.env.API_PASS;
 
   if (username === validUsername && password === validPassword) {
     return next();  // proceed

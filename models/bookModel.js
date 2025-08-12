@@ -1,7 +1,7 @@
-// models/bookModel.js
 const db = require('../config/db');
 
 const Book = {
+  // ---------------- Used Methods for Books - Used in Controller --------------
   async findAll() {
     const q = 'SELECT * FROM books ORDER BY book_id ASC';
     const { rows } = await db.query(q);

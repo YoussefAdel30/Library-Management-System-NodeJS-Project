@@ -1,4 +1,3 @@
-// routes/bookRoutes.js
 const express = require('express');
 const router = express.Router();
 const bookController = require('../controllers/bookController');
@@ -25,11 +24,18 @@ const updateBookSchema = z.object({
   })
 });
 
+
+// 1. GET all borrowers
 router.get('/', bookController.getAll);
+// 2. SEARCH for a book by author,title or ISBN
 router.get('/search', bookController.search);
+// 3. GET a book by id
 router.get('/:id', bookController.getById);
+// 4. CREATE a new book
 router.post('/', validate(createBookSchema), bookController.create);
+// 5. UPDATE a book info
 router.put('/:id', validate(updateBookSchema), bookController.update);
+// 6. DELETE a book
 router.delete('/:id', bookController.remove);
 
 module.exports = router;

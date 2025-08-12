@@ -1,7 +1,7 @@
-// models/borrowModel.js
 const db = require('../config/db');
 
 const Borrow = {
+  // ---------------- Used Methods for Borrowings - Used in Controller --------------
   async create({ borrower_id, book_id, due_date }) {
     const q = `INSERT INTO borrowings (borrower_id, book_id, checkout_date, due_date)
                VALUES ($1,$2,CURRENT_DATE,$3) RETURNING *`;

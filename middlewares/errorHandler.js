@@ -1,4 +1,4 @@
-// middlewares/errorHandler.js
+// Handling error function
 function errorHandler(err, req, res, next) {
   console.error(err);
   if (res.headersSent) return next(err);

@@ -1,0 +1,296 @@
+openapi: 3.0.0
+info:
+  title: Library Management API
+  version: 1.0.0
+  description: API documentation for managing books, borrowers, and borrowing operations.
+servers:
+  - url: http://localhost:5000/api
+    description: Local development server
+
+tags:
+  - name: Books
+    description: API endpoints to manage books
+  - name: Borrowers
+    description: API endpoints to manage borrowers
+  - name: Borrowings
+    description: API endpoints to manage book borrowings and returns
+
+paths:
+  /books:
+    get:
+      tags: [Books]
+      summary: Get all books
+      description: Retrieve a list of all books in the library.
+      responses:
+        '200':
+          description: List of books
+    post:
+      tags: [Books]
+      summary: Create a new book
+      description: Add a new book to the library.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                author:
+                  type: string
+                isbn:
+                  type: string
+                publishedYear:
+                  type: integer
+              required: [title, author, isbn]
+      responses:
+        '201':
+          description: Book created successfully
+
+  /books/search:
+    get:
+      tags: [Books]
+      summary: Search books
+      description: Search for books by author, title, or ISBN.
+      parameters:
+        - in: query
+          name: author
+          schema: { type: string }
+        - in: query
+          name: title
+          schema: { type: string }
+        - in: query
+          name: isbn
+          schema: { type: string }
+      responses:
+        '200':
+          description: Search results
+
+  /books/{id}:
+    get:
+      tags: [Books]
+      summary: Get a book by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Book details
+    put:
+      tags: [Books]
+      summary: Update a book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title: { type: string }
+                author: { type: string }
+                isbn: { type: string }
+                publishedYear: { type: integer }
+      responses:
+        '200':
+          description: Book updated
+    delete:
+      tags: [Books]
+      summary: Delete a book
+      responses:
+        '200':
+          description: Book deleted
+
+  /borrowers:
+    get:
+      tags: [Borrowers]
+      summary: Get all borrowers
+      responses:
+        '200':
+          description: List of borrowers
+    post:
+      tags: [Borrowers]
+      summary: Create a new borrower
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: { type: string }
+                email: { type: string }
+                phone: { type: string }
+              required: [name, email]
+      responses:
+        '201':
+          description: Borrower created
+
+  /borrowers/{id}:
+    get:
+      tags: [Borrowers]
+      summary: Get borrower by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Borrower details
+    put:
+      tags: [Borrowers]
+      summary: Update a borrower
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: { type: string }
+                email: { type: string }
+                phone: { type: string }
+      responses:
+        '200':
+          description: Borrower updated
+    delete:
+      tags: [Borrowers]
+      summary: Delete a borrower
+      responses:
+        '200':
+          description: Borrower deleted
+
+  /borrows/checkout:
+    post:
+      tags: [Borrowings]
+      summary: Checkout a book
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                borrower_id:
+                  type: integer
+                  example: 2
+                  description: ID of the borrower
+                book_id:
+                  type: integer
+                  example: 3
+                  description: ID of the book
+                days:
+                  type: integer
+                  example: 14
+                  description: Number of days to borrow (optional, default 14)
+              required:
+                - borrower_id
+                - book_id
+      responses:
+        '201':
+          description: Book checked out successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  borrowing_id:
+                    type: integer
+                    example: 123
+                  borrower_id:
+                    type: integer
+                    example: 2
+                  book_id:
+                    type: integer
+                    example: 3
+                  checkout_date:
+                    type: string
+                    format: date
+                    example: '2025-08-12'
+                  due_date:
+                    type: string
+                    format: date
+                    example: '2025-08-26'
+        '400':
+          description: No copies available or invalid request
+        '404':
+          description: Book or borrower not found
+
+
+
+
+  /borrows/return/{id}:
+    put:
+      tags: [Borrowings]
+      summary: Return a book
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Book returned
+
+  /borrows/current/{borrowerId}:
+    get:
+      tags: [Borrowings]
+      summary: Get current borrowed books
+      parameters:
+        - in: path
+          name: borrowerId
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: List of current borrowed books
+
+  /borrows/overdue:
+    get:
+      tags: [Borrowings]
+      summary: Get overdue books
+      responses:
+        '200':
+          description: List of overdue books
+
+  /borrows/export/all-borrows-in-range:
+    get:
+      tags: [Borrowings]
+      summary: Export borrows in date range
+      parameters:
+        - in: query
+          name: startDate
+          required: true
+          schema: { type: string, format: date }
+        - in: query
+          name: endDate
+          required: true
+          schema: { type: string, format: date }
+        - in: query
+          name: format
+          required: true
+          schema:
+            type: string
+            enum: [csv, xlsx]
+      responses:
+        '200':
+          description: File exported
+
+  /borrows/export/overdue-last-month:
+    get:
+      tags: [Borrowings]
+      summary: Export overdue books from last month
+      responses:
+        '200':
+          description: File exported
+
+  /borrows/export/all-borrows-last-month:
+    get:
+      tags: [Borrowings]
+      summary: Export all borrows from last month
+      responses:
+        '200':
+          description: File exported

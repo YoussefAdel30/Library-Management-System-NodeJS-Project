@@ -1,11 +1,10 @@
-// server.js
-require('dotenv').config();
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const errorHandler = require('./middlewares/errorHandler');
 const rateLimit = require('express-rate-limit');
 const basicAuth = require('./middlewares/basicAuth');
+const setupSwagger = require('./config/swagger/swaggerConfig');
 
 
 
@@ -16,7 +15,7 @@ app.use(express.json());
 // Apply basicAuth middleware globally to all API routes
 app.use('/api', basicAuth);
 
-// routes
+// core routes
 app.use('/api/books', require('./routes/bookRoutes'));
 app.use('/api/borrowers', require('./routes/borrowerRoutes'));
 app.use('/api/borrows', require('./routes/borrowRoutes'));
@@ -27,5 +26,13 @@ app.get('/', (req, res) => res.send('Library API is running'));
 // error handler (last)
 app.use(errorHandler);
 
+// Swagger setup
+setupSwagger(app);
+
+// Listening Port
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+    console.log(`Swagger docs available at http://localhost:${PORT}/api-docs`);
+});
+

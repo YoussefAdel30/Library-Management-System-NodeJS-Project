@@ -1,4 +1,3 @@
-// routes/borrowerRoutes.js
 const express = require('express');
 const router = express.Router();
 const borrowerController = require('../controllers/borrowerController');
@@ -19,10 +18,16 @@ const updateSchema = z.object({
   })
 });
 
+
+// 1. GET all borrowers
 router.get('/', borrowerController.getAll);
+// 2. GET a borrower by id
 router.get('/:id', borrowerController.getById);
+// 3. CREATE a new borrower
 router.post('/', validate(createSchema), borrowerController.create);
+// 4. UPDATE a borrower info
 router.put('/:id', validate(updateSchema), borrowerController.update);
+// 5. DELETE a borrower
 router.delete('/:id', borrowerController.remove);
 
 module.exports = router;

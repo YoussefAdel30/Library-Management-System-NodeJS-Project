@@ -1,11 +1,14 @@
 const rateLimit = require('express-rate-limit');
 
+
+// rate limiter for checkout a book process.
 const checkoutLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes window
   max: 5,                  // max 5 requests per 5 minutes
   message: "Too many checkout requests from this IP, please try again later."
 });
 
+// rate limiter for returning a book process.
 const returnLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes window
   max: 10,                 // max 10 requests per 5 minutes

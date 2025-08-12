@@ -1,18 +1,36 @@
-version: "3.8"
+version: '3.8'
 
 services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - PGUSER=${PGUSER}
+      - PGHOST=db                # Important: inside Docker network, host is container name 'db', NOT localhost
+      - PGDATABASE=${PGDATABASE}
+      - PGPASSWORD=${PGPASSWORD}
+      - PGPORT=${PGPORT}
+      - API_USER=${API_USER}
+      - API_PASS=${API_PASS}
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+
   db:
-    image: postgres:16
-    container_name: postgres_db
+    image: postgres:15
     restart: always
     environment:
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: mydatabase
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: ${PGDATABASE}
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
+      - ./db:/docker-entrypoint-initdb.d
 
 volumes:
-  postgres_data:
+  postgres-data:

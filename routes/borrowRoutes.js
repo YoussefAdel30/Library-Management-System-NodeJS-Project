@@ -1,4 +1,3 @@
-// routes/borrowRoutes.js
 const express = require('express');
 const router = express.Router();
 const borrowController = require('../controllers/borrowController');
@@ -27,7 +26,7 @@ router.get('/current/:borrowerId', borrowController.getCurrentBorrowedBooks);
 router.get('/overdue', borrowController.getOverdueBooks);
 
 
-//Bonus
+//-----------------------------------Bonus Section-----------------------------------
 // GET /api/borrows/export/all-borrows-in-range?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD&format=csv|xlsx
 router.get('/export/all-borrows-in-range', borrowController.exportAllBorrowsInRange);
 
