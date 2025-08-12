@@ -4,5 +4,5 @@ A RESTful API for managing books, borrowers, and borrowing processes in a librar
 
 
 # Important Notes
-Sensitive data and secrets are included directly in the application properties for simplicity. In a production environment, these should be kept in a secured place such as a vault or AWS Parameter Store and set from those secured stores.
-URL paths specified in the task may not be strictly followed, but similar functionality has been implemented with DTOs for future flexibility without changing the URL.
+* Sensitive data and secrets are included directly in the application properties for simplicity. In a production environment, these should be kept in a secured place such as a vault or AWS Parameter Store and set from those secured stores.
+* URL paths specified in the task may not be strictly followed, but similar functionality has been implemented with DTOs for future flexibility without changing the URL.
