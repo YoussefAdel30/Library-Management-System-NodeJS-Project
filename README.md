@@ -32,7 +32,7 @@ A RESTful API for managing books, borrowers, and borrowing processes in a librar
 * Modular Architecture – Organized into controllers, routes, middlewares, services, utils for maintainability
 
 # Database ERD in PgAdmin
-<img width="1451" height="864" alt="Database_ERD" src="https://github.com/user-attachments/assets/ec0c13ac-6e36-4cee-a1c6-cbe126a17cd8" />
+<img width="1173" height="806" alt="image" src="https://github.com/user-attachments/assets/889fa0ac-0449-49ee-acf4-4dddc4bd0e9d" />
 
 # 🚀 How to Boot Up the Service
 
