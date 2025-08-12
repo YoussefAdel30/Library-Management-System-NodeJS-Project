@@ -88,7 +88,7 @@ The system has a single user for authentication, which can access all endpoints 
 
 3️⃣ After using the enviroment variable (user and pass), you can now hit any API smoothly.
 
-4️⃣ If you face any problems importing the collection and environments, go with swagger approach.But , you will be asked to enter credentials manually which is provided above.
+4️⃣ If you face any problems importing the collection and environments, go with swagger approach. But, you will be asked to enter credentials manually which is provided above.
 
 #### Swagger to Directly Execute Requests
 1️⃣ Access Swagger at: http://localhost:5000/api-docs
