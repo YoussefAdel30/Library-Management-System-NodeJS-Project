@@ -3,7 +3,8 @@ A RESTful API for managing books, borrowers, and borrowing processes in a librar
 
 # 📚 Table of Contents
 1. [Application Specs](#application-specs)
-2. [🚀 How to Boot Up the Service](#-how-to-boot-up-the-service)
+2. [Database ERD in PgAdmin](#database-erd-in-pgadmin)
+3. [🚀 How to Boot Up the Service](#-how-to-boot-up-the-service)
    - [Prerequisites](#prerequisites)
    - [Requirements Covered](#requirements-covered)
    - [Steps](#steps)
@@ -11,12 +12,12 @@ A RESTful API for managing books, borrowers, and borrowing processes in a librar
      2. [Start the Application](#2️⃣-start-the-application)
      3. [Run Unit Tests](#3️⃣-run-unit-tests)
      4. [Stop the Application](#4️⃣-stop-the-application)
-3. [After Bootup Steps](#after-bootup-steps)
+4. [After Bootup Steps](#after-bootup-steps)
    - [Setup](#setup)
    - [Try the APIs](#try-the-apis)
      - [Using Postman Collection](#using-postman-collection)
      - [Swagger to Directly Execute Requests](#swagger-to-directly-execute-requests)
-4. [Important Notes](#important-notes)
+5. [Important Notes](#important-notes)
 
 # Application Specs
 
@@ -29,6 +30,9 @@ A RESTful API for managing books, borrowers, and borrowing processes in a librar
 * Swagger UI (OpenAPI)
 * Unit Testing with Jest & Supertest
 * Modular Architecture – Organized into controllers, routes, middlewares, services, utils for maintainability
+
+# Database ERD in PgAdmin
+<img width="1451" height="864" alt="Database_ERD" src="https://github.com/user-attachments/assets/ec0c13ac-6e36-4cee-a1c6-cbe126a17cd8" />
 
 # 🚀 How to Boot Up the Service
 
