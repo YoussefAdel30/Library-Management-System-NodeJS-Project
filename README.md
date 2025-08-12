@@ -122,4 +122,22 @@ The system has a single user for authentication, which can access all endpoints 
 
 
 # Important Notes
-* Sensitive data and secrets are included directly in the application properties for simplicity. In a production environment, these should be kept in a secured place such as a vault or AWS Parameter Store and set from those secured stores.
+* **Sensitive Data**  
+  Sensitive data and secrets (such as database credentials and API authentication details) are included directly in the application properties for simplicity.  
+  ⚠️ In a production environment, these must be stored securely (e.g., HashiCorp Vault, AWS Parameter Store, or environment variables) instead of hardcoding them.
+
+* **Authentication**  
+  The application uses Basic Authentication with a single static user (`admin/securepassword123`).  
+  In a production-grade system, credentials should be stored securely and authentication should be implemented using a robust mechanism (e.g., JWT or OAuth2).
+  
+* **Database Initialization**  
+  The database is automatically initialized with migration scripts on application startup. This behavior is suitable for development and testing but should be reviewed for production environments to avoid accidental data loss.
+
+* **Testing**  
+  Unit tests are implemented using Jest. By default, tests run automatically on application start in the development environment, but logs may not be visible unless executed manually.
+
+* **Rate Limiting**  
+  Rate limiting is applied to specific endpoints for demonstration purposes. In production, configuration should be adjusted based on API usage patterns.
+
+* **Swagger UI**  
+  API documentation is available via Swagger UI. Remember to disable or secure Swagger in production to avoid exposing internal API details.
