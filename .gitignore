@@ -145,8 +145,8 @@ vite.config.ts.timestamp-*
 dist/
 *.tsbuildinfo
 
-# Environment variables
-.env
+# # Environment variables
+# .env
 
 # Prisma SQLite (if you use it for dev)
 prisma/dev.db
