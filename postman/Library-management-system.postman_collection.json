@@ -1,0 +1,632 @@
+{
+	"info": {
+		"_postman_id": "f06fff34-0fe6-46f6-a236-087bbde2d3c2",
+		"name": "Library-management-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45879682",
+		"_collection_link": "https://youssefadel-8199469.postman.co/workspace/3d5ab02e-ef91-473f-8046-d4d3cb2bb66f/collection/45879682-f06fff34-0fe6-46f6-a236-087bbde2d3c2?action=share&source=collection_link&creator=45879682"
+	},
+	"item": [
+		{
+			"name": "Book_Endpoints",
+			"item": [
+				{
+					"name": "GET-All-Books",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Book-By-Id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/books/2\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"2\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search-By-Author-Title-OR-ISBN",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/books/search?title=kill&author=harper",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"search"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "kill"
+								},
+								{
+									"key": "author",
+									"value": "harper"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create-Book",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Node.js Basics test 2\",\r\n  \"author\": \"John Doe\",\r\n  \"isbn\": \"9781234567897\",\r\n  \"available_quantity\": 10,\r\n  \"shelf_location\": \"B2\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update-Book-By-Id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Advanced Node.js\",\r\n  \"available_quantity\": 8\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/books/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-Book-By-Id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/books/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Borrower_Endpoints",
+			"item": [
+				{
+					"name": "GET-All_Borrowers",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/borrowers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"borrowers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Borrower-By-Id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/borrowers/3\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"borrowers",
+								"3\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create-Borrower",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/borrowers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"borrowers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update-Borrower-By-Id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Updated Name\",\r\n  \"email\": \"updated@example.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/borrowers/1\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"borrowers",
+								"1\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-Borrower-By-Id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/borrowers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"borrowers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Borrowing_Endpoints",
+			"item": [
+				{
+					"name": "Generate-Report",
+					"item": [
+						{
+							"name": "Generate-Borrowing-Report",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Checkout-A-Book",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"borrower_id\": 2,\r\n  \"book_id\": 3,\r\n  \"days\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/borrows/checkout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"borrows",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return-A-Book",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/borrows/return/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"borrows",
+								"return",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List-Current-Books-For-Borrower",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/borrows/current/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"borrows",
+								"current",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List-Overdue-Books",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{API_USER}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{API_PASS}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/borrows/overdue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"borrows",
+								"overdue"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
