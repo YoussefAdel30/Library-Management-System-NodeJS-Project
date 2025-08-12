@@ -1,3 +1,23 @@
+# 📚 Table of Contents
+
+1. [Overview](#library-management-system-nodejs-project)
+2. [Application Specs](#application-specs)
+3. [🚀 How to Boot Up the Service](#-how-to-boot-up-the-service)
+   - [Prerequisites](#prerequisites)
+   - [Requirements Covered](#requirements-covered)
+   - [Steps](#steps)
+     1. [Clone the Project](#1️⃣-clone-the-project)
+     2. [Start the Application](#2️⃣-start-the-application)
+     3. [Run Unit Tests](#3️⃣-run-unit-tests)
+     4. [Stop the Application](#4️⃣-stop-the-application)
+4. [After Bootup Steps](#after-bootup-steps)
+   - [Setup](#setup)
+   - [Try the APIs](#try-the-apis)
+     - [Using Postman Collection](#using-postman-collection)
+     - [Swagger to Directly Execute Requests](#swagger-to-directly-execute-requests)
+5. [Important Notes](#important-notes)
+
+
 # Library-Management-System-NodeJS-Project
 A RESTful API for managing books, borrowers, and borrowing processes in a library. Built with Node.js, TypeScript, Express, and PostgreSQL. Supports CRUD operations, search, overdue tracking, CSV/XLSX exports, authentication, rate limiting, Docker setup, Swagger docs, and unit tests for core features.
 
