@@ -16,8 +16,6 @@ services:
       - API_PASS=${API_PASS}
     depends_on:
       - db
-    volumes:
-      - .:/usr/src/app
 
   db:
     image: postgres:15

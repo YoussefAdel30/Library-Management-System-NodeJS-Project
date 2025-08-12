@@ -1,4 +1,6 @@
+console.log('Starting server...');
 require('dotenv').config();
+console.log('Environment variables loaded.');
 const express = require('express');
 const cors = require('cors');
 const errorHandler = require('./middlewares/errorHandler');
@@ -12,6 +14,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+console.log('Express app created.');
+
 // Apply basicAuth middleware globally to all API routes
 app.use('/api', basicAuth);
 
@@ -19,6 +23,8 @@ app.use('/api', basicAuth);
 app.use('/api/books', require('./routes/bookRoutes'));
 app.use('/api/borrowers', require('./routes/borrowerRoutes'));
 app.use('/api/borrows', require('./routes/borrowRoutes'));
+
+console.log('Basic routes set up.');
 
 // health
 app.get('/', (req, res) => res.send('Library API is running'));
