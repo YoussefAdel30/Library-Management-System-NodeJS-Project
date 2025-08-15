@@ -28,7 +28,7 @@ A RESTful API for managing books, borrowers, and borrowing processes in a librar
 * PostgreSQL
 * Docker
 * Swagger UI (OpenAPI)
-* Unit Testing with Jest & Supertest
+* Unit Testing with Jest
 * Modular Architecture – Organized into controllers, routes, middlewares, services, utils for maintainability
 
 # Database ERD in PgAdmin
